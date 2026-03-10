@@ -27,14 +27,21 @@ jobs:
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
           BASE_URL: 'https://www.saucedemo.com'
 
-      - name: Generate Allure Report
-        if: always()
-        run: npx -y allure-commandline@latest generate allure-results -o allure-report --clean
-
-      - name: Upload Allure Report Artifact
+      - name: Upload RAW Allure Results
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: allure-report
-          path: allure-report/
+          name: allure-results
+          path: allure-results/
           retention-days: 30
+      # - name: Generate Allure Report
+      #   if: always()
+      #   run: npx -y allure-commandline@latest generate allure-results -o allure-report --clean
+
+      # - name: Upload Allure Report Artifact
+      #   uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     name: allure-report
+      #     path: allure-report/
+      #     retention-days: 30
