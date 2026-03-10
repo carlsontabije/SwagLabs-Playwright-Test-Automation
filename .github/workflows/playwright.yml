@@ -27,6 +27,10 @@ jobs:
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
           BASE_URL: 'https://www.saucedemo.com'
 
+      - name: Debug - List Allure Results
+        if: always()
+        run: ls -la allure-results || echo "Folder does not exist"
+
       - name: Generate Allure Report
         if: always()
         run: npx -p allure-commandline allure generate allure-results -o allure-report --clean

@@ -25,7 +25,7 @@ export default defineConfig({
   reporter: [
     ['list'], // Gives you a clean readout in the terminal
     ['html'], // Keeps the default Playwright HTML report as a backup
-    ['allure-playwright'] // Tells Playwright to strictly generate the allure-results folder
+    ['allure-playwright', { outputFolder: 'allure-results' }] // Tells Playwright to strictly generate the allure-results folder
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
