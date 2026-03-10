@@ -28,11 +28,8 @@ jobs:
           BASE_URL: 'https://www.saucedemo.com'
 
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@master
         if: always()
-        with:
-          allure_results: allure-results
-          allure_report: allure-report
+        run: npx -y allure-commandline@latest generate allure-results -o allure-report --clean
 
       - name: Upload Allure Report Artifact
         uses: actions/upload-artifact@v4
