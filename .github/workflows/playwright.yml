@@ -26,8 +26,14 @@ jobs:
         env:
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
 
-      - uses: allure-framework/allure-action@v0
+      - name: Generate Allure Report
+        if: always()
+        run: npx allure generate allure-results -o allure-report --clean
+
+      - name: Upload Allure Report Artifact
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          report-directory: './allure-results'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: allure-report/
+          path: allure-report/
+          retention-days: 30
