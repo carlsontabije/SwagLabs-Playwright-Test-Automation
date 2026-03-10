@@ -22,7 +22,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test --reporter=line,allure-playwright
+        run: npx playwright test
         env:
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
           BASE_URL: 'https://www.saucedemo.com'
