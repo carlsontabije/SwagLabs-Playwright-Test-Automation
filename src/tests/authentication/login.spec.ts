@@ -1,5 +1,5 @@
-import user from '../data/users.json';
-import { expect, test } from '../fixtures/baseTest';
+import user from '../../data/users.json' with { type: 'json' };
+import { expect, test } from '../../fixtures/baseTest';
 
 test.describe('data-driven Authentication', () => {
   for (const persona of user) {
