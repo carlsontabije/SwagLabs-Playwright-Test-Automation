@@ -10,6 +10,7 @@ test.describe('e2e Checkout', () => {
     checkoutCompletePage
   }) => {
     await test.step('Add product to cart then proceed to checkout', async () => {
+      await productPage.goto();
       await productPage.addProductToCart();
       await productPage.goToCart();
       await cartPage.checkoutItem();
