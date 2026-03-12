@@ -11,3 +11,6 @@ node_modules/
 #Allure reports
 allure-results/
 allure-report/
+
+#Authentication 
+.auth

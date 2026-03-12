@@ -1,4 +1,4 @@
-import user from '../../data/users.json' with { type: 'json' };
+import { user } from '../../data/users';
 import { expect, test } from '../../fixtures/baseTest';
 
 test.describe('data-driven Authentication', () => {

@@ -1,4 +1,4 @@
-[
+export const user = [
   {
     "username": "standard_user",
     "desc": "Standard User",

@@ -6,6 +6,9 @@ export class ProductPage {
   private readonly addToCartButton: Locator;
   private readonly goToCartButton: Locator;
 
+  private readonly filterDropdown: Locator;
+  private readonly itemName: Locator;
+
   constructor(page: Page) {
     this.page = page;
     this.productCard = page
@@ -15,6 +18,13 @@ export class ProductPage {
       name: 'Add to cart'
     });
     this.goToCartButton = page.locator('.shopping_cart_container');
+
+    this.filterDropdown = page.locator('.product_sort_container');
+    this.itemName = page.locator('.inventory_item_name');
+  }
+
+  async goto() {
+    await this.page.goto('/inventory.html');
   }
 
   async addProductToCart() {
@@ -23,5 +33,13 @@ export class ProductPage {
 
   async goToCart() {
     await this.goToCartButton.click();
+  }
+
+  async filterItems(value: string) {
+    await this.filterDropdown.selectOption(value);
+  }
+
+  async getItemName() {
+    return await this.itemName.first().textContent();
   }
 }

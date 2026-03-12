@@ -3,19 +3,12 @@ import { expect, test } from '../../fixtures/baseTest';
 
 test.describe('e2e Checkout', () => {
   test('testing user purchase flow', async ({
-    loginPage,
     productPage,
     cartPage,
     checkoutInfoPage,
     checkoutOverviewPage,
     checkoutCompletePage
   }) => {
-    await test.step('Login to Swag Labs', async () => {
-      await loginPage.goToLogin();
-      const password = process.env.SAUCE_PASSWORD ?? 'fallback_if_local';
-      await loginPage.login('standard_user', password);
-    });
-
     await test.step('Add product to cart then proceed to checkout', async () => {
       await productPage.addProductToCart();
       await productPage.goToCart();
