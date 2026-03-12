@@ -6,7 +6,7 @@ test.describe('Inventory filtering Functionality', () => {
     await productPage.goto();
   });
   for (const data of filter)
-    test.only(`Verify filtering of Products by ${data.description}`, async ({
+    test(`Verify filtering of Products by ${data.description}`, async ({
       productPage
     }) => {
       await test.step(`Select ${data.description} from dropdown`, async () => {
